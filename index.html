@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="escuro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente Leve | Saúde Mental e Equilíbrio para Jovens</title>
+  <meta name="description" content="Mente Leve: plataforma acessível de saúde mental para estudantes. Respiração guiada, rastreador de humor, timer de foco, autoavaliação de burnout e rede de apoio.">
+  <meta name="theme-color" content="#14112b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#conteudo" class="pular-link">Pular para o conteúdo principal</a>
+
+  <!-- Fundo decorativo -->
+  <div class="fundo" aria-hidden="true">
+    <span class="bolha b1"></span><span class="bolha b2"></span><span class="bolha b3"></span>
+  </div>
+
+  <!-- Barra de acessibilidade -->
+  <div class="barra-a11y" role="region" aria-label="Ferramentas de acessibilidade">
+    <div class="container barra-a11y__inner">
+      <span class="barra-a11y__titulo">Acessibilidade</span>
+      <div class="barra-a11y__grupo" role="group" aria-label="Tamanho da fonte">
+        <button id="btn-fonte-menos" class="chip" aria-label="Diminuir tamanho da fonte">A-</button>
+        <button id="btn-fonte-reset" class="chip" aria-label="Restaurar tamanho da fonte">A</button>
+        <button id="btn-fonte-mais" class="chip" aria-label="Aumentar tamanho da fonte">A+</button>
+      </div>
+      <div class="barra-a11y__grupo" role="group" aria-label="Tema de cores">
+        <button id="btn-tema-escuro" class="chip" data-tema="escuro" aria-pressed="true">Escuro</button>
+        <button id="btn-tema-claro" class="chip" data-tema="claro" aria-pressed="false">Claro</button>
+        <button id="btn-tema-contraste" class="chip" data-tema="contraste" aria-pressed="false">Alto contraste</button>
+      </div>
+      <div class="barra-a11y__grupo">
+        <button id="btn-movimento" class="chip" aria-pressed="false">Reduzir animações</button>
+        <button id="btn-espacamento" class="chip" aria-pressed="false">Espaçar texto</button>
+        <button id="btn-atalhos" class="chip" aria-haspopup="dialog">Atalhos (?)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cabeçalho / navegação -->
+  <header class="cabecalho">
+    <div class="container cabecalho__inner">
+      <a href="#inicio" class="logo" id="logo-link" aria-label="Mente Leve, ir para o início">
+        <svg viewBox="0 0 40 40" width="36" height="36" aria-hidden="true" focusable="false">
+          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset="1" stop-color="#5eead4"/></linearGradient></defs>
+          <circle cx="20" cy="20" r="18" fill="url(#lg)"/>
+          <path d="M11 22c3-6 6-6 9 0s6 6 9 0" stroke="#14112b" stroke-width="3" fill="none" stroke-linecap="round"/>
+        </svg>
+        <span>Mente<strong>Leve</strong></span>
+      </a>
+      <button id="btn-menu" class="btn-menu" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="menu-principal" class="menu" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#inicio" data-rota="inicio" id="nav-inicio">Início</a></li>
+          <li><a href="#respirar" data-rota="respirar" id="nav-respirar">Respirar</a></li>
+          <li><a href="#humor" data-rota="humor" id="nav-humor">Humor</a></li>
+          <li><a href="#foco" data-rota="foco" id="nav-foco">Foco</a></li>
+          <li><a href="#burnout" data-rota="burnout" id="nav-burnout">Anti-Burnout</a></li>
+          <li><a href="#apoio" data-rota="apoio" id="nav-apoio">Apoio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" tabindex="-1">
+
+    <!-- ================= INICIO ================= -->
+    <section id="inicio" class="secao ativa" aria-labelledby="titulo-inicio" data-cor="lavanda">
+      <div class="container hero">
+        <div class="hero__texto">
+          <p class="selo">Saúde mental para estudantes</p>
+          <h1 id="titulo-inicio">Estude com equilíbrio. <span class="grad">Viva com leveza.</span></h1>
+          <p class="lead">O Mente Leve reúne ferramentas simples e gratuitas para cuidar da sua mente durante a rotina de estudos: respirar melhor, entender suas emoções, focar sem se esgotar e saber onde pedir ajuda.</p>
+          <div class="hero__acoes">
+            <a href="#respirar" class="btn btn--primario" id="cta-respirar">Começar a respirar</a>
+            <a href="#humor" class="btn btn--fantasma" id="cta-humor">Como estou hoje?</a>
+          </div>
+          <ul class="hero__stats" aria-label="Resumo do seu progresso">
+            <li><strong id="stat-respiracoes">0</strong><span>ciclos de respiração</span></li>
+            <li><strong id="stat-humor">0</strong><span>registros de humor</span></li>
+            <li><strong id="stat-pomodoros">0</strong><span>sessões de foco</span></li>
+          </ul>
+        </div>
+        <figure class="hero__img">
+          <img src="assets/hero.jpg" alt="Ilustração de uma jovem sentada de pernas cruzadas meditando de olhos fechados em seu quarto, ao lado de livros e um notebook, cercada por folhas e luzes suaves." width="600" height="450">
+        </figure>
+      </div>
+
+      <div class="container">
+        <h2 class="titulo-secao">Escolha por onde começar</h2>
+        <ul class="grade-cards">
+          <li><a class="card-tema" href="#respirar" data-cor="teal" id="card-respirar">
+            <span class="card-tema__num" aria-hidden="true">01</span>
+            <h3>Respiração guiada</h3>
+            <p>Técnicas 4-7-8, quadrada e coerente com animação visual e voz em texto.</p>
+          </a></li>
+          <li><a class="card-tema" href="#humor" data-cor="pessego" id="card-humor">
+            <span class="card-tema__num" aria-hidden="true">02</span>
+            <h3>Rastreador de humor</h3>
+            <p>Registre como se sente e acompanhe seu padrão emocional da semana.</p>
+          </a></li>
+          <li><a class="card-tema" href="#foco" data-cor="lavanda" id="card-foco">
+            <span class="card-tema__num" aria-hidden="true">03</span>
+            <h3>Foco e tempo</h3>
+            <p>Timer Pomodoro e lista de tarefas para estudar sem sobrecarga.</p>
+          </a></li>
+          <li><a class="card-tema" href="#burnout" data-cor="rosa" id="card-burnout">
+            <span class="card-tema__num" aria-hidden="true">04</span>
+            <h3>Anti-burnout escolar</h3>
+            <p>Autoavaliação de esgotamento, dicas práticas e pausas ativas.</p>
+          </a></li>
+          <li><a class="card-tema" href="#apoio" data-cor="verde" id="card-apoio">
+            <span class="card-tema__num" aria-hidden="true">05</span>
+            <h3>Rede de apoio</h3>
+            <p>Exercício de ancoragem 5-4-3-2-1 e contatos de ajuda gratuitos.</p>
+          </a></li>
+        </ul>
+
+        <aside class="frase-dia" aria-live="polite">
+          <p class="frase-dia__rotulo">Frase do dia</p>
+          <blockquote id="frase-dia">Carregando...</blockquote>
+          <button class="btn btn--pequeno btn--fantasma" id="btn-nova-frase">Outra frase</button>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= RESPIRAR ================= -->
+    <section id="respirar" class="secao" aria-labelledby="titulo-respirar" data-cor="teal" hidden>
+      <div class="container">
+        <header class="cab-secao">
+          <p class="selo">01 · Respiração guiada</p>
+          <h2 id="titulo-respirar">Respire. Seu corpo agradece.</h2>
+          <p class="lead">Respirar devagar ativa o sistema nervoso parassimpático e reduz a ansiedade em poucos minutos. Ideal antes de provas ou apresentações.</p>
+        </header>
+
+        <div class="layout-2">
+          <div class="painel">
+            <fieldset class="grupo-opcoes">
+              <legend>Escolha a técnica</legend>
+              <label class="opcao"><input type="radio" name="tecnica" value="478" checked> <span><strong>4-7-8</strong> Para relaxar e dormir</span></label>
+              <label class="opcao"><input type="radio" name="tecnica" value="quadrada"> <span><strong>Quadrada (4-4-4-4)</strong> Para foco e controle</span></label>
+              <label class="opcao"><input type="radio" name="tecnica" value="coerente"> <span><strong>Coerente (5-5)</strong> Para equilíbrio geral</span></label>
+            </fieldset>
+            <label class="campo">
+              <span>Número de ciclos</span>
+              <input type="number" id="input-ciclos" min="1" max="20" value="4">
+            </label>
+            <label class="opcao opcao--linha">
+              <input type="checkbox" id="chk-som"> <span>Sinal sonoro suave a cada fase</span>
+            </label>
+            <div class="acoes">
+              <button class="btn btn--primario" id="btn-respirar-iniciar">Iniciar</button>
+              <button class="btn btn--fantasma" id="btn-respirar-parar" disabled>Parar</button>
+            </div>
+          </div>
+
+          <div class="painel painel--centro">
+            <div class="respiro" id="respiro" aria-hidden="true">
+              <div class="respiro__anel"></div>
+              <div class="respiro__circulo" id="respiro-circulo"></div>
+              <div class="respiro__texto"><span id="respiro-fase">Pronto?</span><span id="respiro-contagem" class="respiro__num"></span></div>
+            </div>
+            <p class="status-leitor" id="respiro-status" role="status" aria-live="assertive">Selecione uma técnica e pressione Iniciar.</p>
+            <p class="ciclo-info">Ciclo <span id="respiro-ciclo">0</span> de <span id="respiro-total">4</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HUMOR ================= -->
+    <section id="humor" class="secao" aria-labelledby="titulo-humor" data-cor="pessego" hidden>
+      <div class="container">
+        <header class="cab-secao">
+          <p class="selo">02 · Rastreador de humor</p>
+          <h2 id="titulo-humor">Como você está se sentindo agora?</h2>
+          <p class="lead">Nomear emoções é o primeiro passo para lidar com elas. Seus registros ficam salvos apenas neste navegador.</p>
+        </header>
+
+        <div class="layout-2">
+          <form class="painel" id="form-humor">
+            <fieldset class="humores">
+              <legend>Selecione seu humor</legend>
+              <div class="humores__lista" id="humores-lista"></div>
+            </fieldset>
+
+            <fieldset class="tags">
+              <legend>O que está influenciando? (opcional)</legend>
+              <div class="tags__lista" id="tags-lista"></div>
+            </fieldset>
+
+            <label class="campo">
+              <span>Anotação rápida (opcional)</span>
+              <textarea id="humor-nota" rows="3" maxlength="200" placeholder="Ex.: Fiquei nervoso com a prova de matemática..."></textarea>
+            </label>
+            <button type="submit" class="btn btn--primario" id="btn-salvar-humor">Salvar registro</button>
+            <p class="feedback" id="humor-feedback" role="status" aria-live="polite"></p>
+          </form>
+
+          <div class="painel">
+            <h3>Seus últimos 7 dias</h3>
+            <div class="grafico" id="grafico-humor" role="img" aria-label="Gráfico de humor dos últimos 7 dias"></div>
+            <p class="insight" id="humor-insight" aria-live="polite"></p>
+            <h3>Histórico</h3>
+            <ul class="historico" id="historico-humor"></ul>
+            <button class="btn btn--pequeno btn--fantasma" id="btn-limpar-humor">Limpar histórico</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOCO ================= -->
+    <section id="foco" class="secao" aria-labelledby="titulo-foco" data-cor="lavanda" hidden>
+      <div class="container">
+        <header class="cab-secao">
+          <p class="selo">03 · Gestão de tempo e estresse</p>
+          <h2 id="titulo-foco">Foco no que importa, pausa no que cansa.</h2>
+          <p class="lead">A técnica Pomodoro divide o estudo em blocos curtos com pausas, evitando a fadiga mental e aumentando a concentração.</p>
+        </header>
+
+        <div class="layout-2">
+          <div class="painel painel--centro">
+            <div class="modos" role="tablist" aria-label="Modo do timer">
+              <button role="tab" class="modo ativo" data-modo="foco" aria-selected="true" id="modo-foco">Foco 25</button>
+              <button role="tab" class="modo" data-modo="curta" aria-selected="false" id="modo-curta">Pausa 5</button>
+              <button role="tab" class="modo" data-modo="longa" aria-selected="false" id="modo-longa">Pausa 15</button>
+            </div>
+            <div class="timer">
+              <svg viewBox="0 0 200 200" class="timer__svg" aria-hidden="true" focusable="false">
+                <circle cx="100" cy="100" r="90" class="timer__fundo"/>
+                <circle cx="100" cy="100" r="90" class="timer__progresso" id="timer-progresso"/>
+              </svg>
+              <div class="timer__tempo" id="timer-tempo" role="timer" aria-live="off">25:00</div>
+            </div>
+            <p class="status-leitor" id="timer-status" role="status" aria-live="polite">Pronto para focar.</p>
+            <div class="acoes">
+              <button class="btn btn--primario" id="btn-timer-iniciar">Iniciar</button>
+              <button class="btn btn--fantasma" id="btn-timer-reset">Reiniciar</button>
+            </div>
+            <p class="ciclo-info">Sessões de foco hoje: <strong id="pomodoros-hoje">0</strong></p>
+          </div>
+
+          <div class="painel">
+            <h3>Tarefas de estudo</h3>
+            <form class="form-tarefa" id="form-tarefa">
+              <label for="input-tarefa" class="sr-only">Nova tarefa</label>
+              <input type="text" id="input-tarefa" placeholder="Ex.: Revisar capítulo 3 de História" maxlength="80" required>
+              <label for="select-prioridade" class="sr-only">Prioridade</label>
+              <select id="select-prioridade">
+                <option value="alta">Alta</option>
+                <option value="media" selected>Média</option>
+                <option value="baixa">Baixa</option>
+              </select>
+              <button type="submit" class="btn btn--primario" id="btn-add-tarefa">Adicionar</button>
+            </form>
+            <div class="progresso-tarefas">
+              <div class="barra"><div class="barra__fill" id="barra-tarefas"></div></div>
+              <span id="texto-tarefas">0 de 0 concluídas</span>
+            </div>
+            <ul class="lista-tarefas" id="lista-tarefas" aria-live="polite"></ul>
+            <div class="dica-box">
+              <strong>Dica:</strong> divida tarefas grandes em partes de até 25 minutos. Terminar pequenas metas libera dopamina e mantém a motivação.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BURNOUT ================= -->
+    <section id="burnout" class="secao" aria-labelledby="titulo-burnout" data-cor="rosa" hidden>
+      <div class="container">
+        <header class="cab-secao">
+          <p class="selo">04 · Prevenção do burnout escolar</p>
+          <h2 id="titulo-burnout">Cansaço que não passa? Vamos olhar com carinho.</h2>
+          <p class="lead">O burnout escolar é um esgotamento causado por excesso de cobrança e pouco descanso. Faça a autoavaliação e veja dicas práticas.</p>
+        </header>
+
+        <div class="layout-2">
+          <form class="painel" id="form-quiz">
+            <h3>Autoavaliação rápida</h3>
+            <p class="texto-suave">Nas últimas duas semanas, com que frequência...</p>
+            <div id="quiz-perguntas"></div>
+            <button type="submit" class="btn btn--primario" id="btn-quiz">Ver resultado</button>
+            <div class="resultado" id="quiz-resultado" role="status" aria-live="polite" tabindex="-1"></div>
+            <p class="aviso">Esta avaliação é educativa e não substitui diagnóstico profissional.</p>
+          </form>
+
+          <div class="painel">
+            <h3>Gerador de pausa ativa</h3>
+            <div class="pausa" id="pausa-box" aria-live="polite">
+              <p class="pausa__titulo" id="pausa-titulo">Precisa de um respiro?</p>
+              <p id="pausa-desc">Clique no botão para receber uma sugestão de pausa de 2 a 5 minutos.</p>
+            </div>
+            <button class="btn btn--primario" id="btn-pausa">Sugerir pausa</button>
+
+            <h3 class="mt">Dicas contra o burnout</h3>
+            <p class="texto-suave">Selecione um cartão para ver a dica.</p>
+            <ul class="dicas" id="lista-dicas"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= APOIO ================= -->
+    <section id="apoio" class="secao" aria-labelledby="titulo-apoio" data-cor="verde" hidden>
+      <div class="container">
+        <header class="cab-secao">
+          <p class="selo">05 · Rede de apoio</p>
+          <h2 id="titulo-apoio">Você não está sozinho.</h2>
+          <p class="lead">Em momentos de crise, técnicas de ancoragem ajudam a voltar ao presente. E pedir ajuda é um ato de coragem.</p>
+        </header>
+
+        <div class="layout-2">
+          <div class="painel">
+            <h3>Ancoragem 5-4-3-2-1</h3>
+            <p class="texto-suave">Use seus sentidos para sair da espiral de ansiedade. Avance no seu ritmo.</p>
+            <div class="ancora" id="ancora" aria-live="polite">
+              <div class="ancora__passos" id="ancora-passos" aria-hidden="true"></div>
+              <p class="ancora__num" id="ancora-num">5</p>
+              <p class="ancora__texto" id="ancora-texto">coisas que você pode <strong>ver</strong></p>
+              <p class="texto-suave" id="ancora-dica">Olhe ao redor e nomeie cinco objetos. Repare nas cores e formas.</p>
+            </div>
+            <div class="acoes">
+              <button class="btn btn--fantasma" id="btn-ancora-voltar" disabled>Voltar</button>
+              <button class="btn btn--primario" id="btn-ancora-proximo">Próximo</button>
+            </div>
+          </div>
+
+          <div class="painel">
+            <h3>Contatos de ajuda gratuitos</h3>
+            <ul class="contatos">
+              <li class="contato contato--destaque">
+                <div><strong>CVV - Centro de Valorização da Vida</strong><span>Apoio emocional 24h, sigilo total</span></div>
+                <a href="tel:188" class="btn btn--primario" id="tel-cvv" aria-label="Ligar para o CVV, número 188">188</a>
+              </li>
+              <li class="contato">
+                <div><strong>SAMU</strong><span>Emergências médicas</span></div>
+                <a href="tel:192" class="btn btn--fantasma" id="tel-samu" aria-label="Ligar para o SAMU, número 192">192</a>
+              </li>
+              <li class="contato">
+                <div><strong>CAPS</strong><span>Centro de Atenção Psicossocial do SUS, procure o mais próximo</span></div>
+                <a href="https://www.gov.br/saude/pt-br/composicao/saes/desme/raps/caps" target="_blank" rel="noopener" class="btn btn--fantasma" id="link-caps">Saiba mais<span class="sr-only"> (abre em nova aba)</span></a>
+              </li>
+              <li class="contato">
+                <div><strong>Chat CVV</strong><span>Prefere escrever? Converse online</span></div>
+                <a href="https://cvv.org.br/chat/" target="_blank" rel="noopener" class="btn btn--fantasma" id="link-chat">Abrir chat<span class="sr-only"> (abre em nova aba)</span></a>
+              </li>
+            </ul>
+            <div class="dica-box">
+              <strong>Converse com alguém de confiança:</strong> um amigo, familiar, professor ou orientador escolar. Dividir o peso já alivia.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <p><strong>Mente Leve</strong> · Projeto Web Social · Desenvolvimento de Sistemas</p>
+      <p class="texto-suave">Conteúdo educativo. Não substitui acompanhamento profissional. Em caso de emergência, ligue 188 (CVV) ou 192 (SAMU).</p>
+    </div>
+  </footer>
+
+  <!-- Diálogo de atalhos -->
+  <dialog id="dialogo-atalhos" aria-labelledby="titulo-atalhos">
+    <h2 id="titulo-atalhos">Atalhos de teclado</h2>
+    <dl class="atalhos">
+      <dt><kbd>Alt</kbd> + <kbd>1</kbd> a <kbd>6</kbd></dt><dd>Ir para Início, Respirar, Humor, Foco, Anti-Burnout e Apoio</dd>
+      <dt><kbd>Alt</kbd> + <kbd>C</kbd></dt><dd>Alternar tema (escuro, claro, alto contraste)</dd>
+      <dt><kbd>Alt</kbd> + <kbd>+</kbd> / <kbd>-</kbd></dt><dd>Aumentar / diminuir fonte</dd>
+      <dt><kbd>Alt</kbd> + <kbd>M</kbd></dt><dd>Reduzir animações</dd>
+      <dt><kbd>Espaço</kbd></dt><dd>Iniciar/pausar o timer (na seção Foco)</dd>
+      <dt><kbd>?</kbd></dt><dd>Abrir esta janela</dd>
+      <dt><kbd>Esc</kbd></dt><dd>Fechar janela</dd>
+    </dl>
+    <button class="btn btn--primario" id="btn-fechar-atalhos">Fechar</button>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
